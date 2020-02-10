@@ -1,6 +1,6 @@
 import request from "superagent";
 export const ALL_IMAGES = "ALL_IMAGES";
-const baseUrl = "http://localhost:4000";
+const baseUrl = "https://neelagiri-image-board.herokuapp.com";
 function allImages(payload) {
   return {
     type: ALL_IMAGES,
