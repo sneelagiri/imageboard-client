@@ -47,7 +47,7 @@ function auth(payload) {
 }
 
 export const login = (email, password) => dispatch => {
-  console.log(email, password);
+  // console.log(email, password);
   const credentialsObj = {
     email: email,
     password: password
@@ -59,6 +59,32 @@ export const login = (email, password) => dispatch => {
     .then(response => {
       console.log(response);
       const action = auth(response.body.jwt);
+      dispatch(action);
+    })
+    .catch(error => {
+      console.log(error.response.body.message);
+      return console.error;
+    });
+};
+
+const newUser = "NEW_USER";
+function userSignup(payload) {
+  return { type: newUser, payload };
+}
+
+export const signup = (email, password) => dispatch => {
+  console.log(email, password);
+  const credentialsObj = {
+    email: email,
+    password: password
+  };
+
+  request
+    .post(`${baseUrl}/user`)
+    .send(credentialsObj)
+    .then(response => {
+      console.log(response);
+      const action = userSignup(response.body);
       dispatch(action);
     })
     .catch(error => {

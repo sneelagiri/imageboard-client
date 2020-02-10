@@ -1,6 +1,7 @@
 import React from "react";
 import CreateFormContainer from "./CreateFormContainer";
 import LoginFormContainer from "./LoginFormContainer";
+import SignupFormContainer from "./SignupFormContainer";
 
 export default function List(props) {
   return (
@@ -9,7 +10,8 @@ export default function List(props) {
         <div>
           {" "}
           <h3>Login</h3>
-          <LoginFormContainer />{" "}
+          <LoginFormContainer /> <h3>Sign Up</h3>
+          <SignupFormContainer />
         </div>
       ) : (
         <div>
